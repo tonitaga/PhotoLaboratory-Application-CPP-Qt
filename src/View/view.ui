@@ -1,0 +1,947 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>PhotoLaboratoryView</class>
+ <widget class="QMainWindow" name="PhotoLaboratoryView">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>600</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>13</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>PhotoLaboratoryView</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icon.qrc">
+    <normaloff>:/PhotoLaboratoryIcon.ico</normaloff>:/PhotoLaboratoryIcon.ico</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+	background-color: #18122B;
+}
+
+QSpinBox {
+	background-color:#18122B;
+	color: white;
+	border: 1px solid gray
+}
+
+QSlider::groove:horizontal {
+    border: 1px solid gray;
+    height: 10px;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #18122B, stop:1 #393053);
+    margin: 2px 0;
+}
+
+QSlider::handle:horizontal {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #393053, stop:1  #18122B);
+    border: 1px solid #5c5c5c;
+    width: 18px;
+    margin: -2px 0;
+    border-radius: 3px;
+}
+
+QMenuBar {
+	background-color: #18122B;
+	color: white;
+}
+
+QMenuBar::item::selected {
+	background-color: #393053;
+	color: white;
+}
+
+QMenu {
+	background-color: #18122B;
+	color: white;	
+}
+
+QMenu::item {
+	background-color:  #18122B;
+	color: white;
+}
+
+QMenu::item::selected {
+	background-color: #393053;
+	color: white;
+}
+
+QToolTip {
+	color: white;
+	background-color: #393053;
+	border: 0px;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="styleSheet">
+       <string notr="true"/>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="pageEnter">
+       <layout class="QGridLayout" name="gridLayout_3">
+        <item row="0" column="0">
+         <layout class="QGridLayout" name="gridLayout_2" rowstretch="0,0,0,0,0">
+          <item row="4" column="0">
+           <widget class="QPushButton" name="pushButtonImport">
+            <property name="font">
+             <font>
+              <pointsize>25</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+	background-color: #18122B;
+	color: white;
+	border: 1px solid gray;
+	border-radius: 10px;
+}
+
+QPushButton::hover {
+	background-color: #393053;
+}</string>
+            </property>
+            <property name="text">
+             <string>Import Image</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="0">
+           <widget class="QLabel" name="labelWelcome">
+            <property name="styleSheet">
+             <string notr="true">color: white;</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:28pt;&quot;&gt;Welcome to &lt;/span&gt;&lt;span style=&quot; font-size:28pt; font-weight:700;&quot;&gt;PhotoLaboratory&lt;/span&gt;&lt;span style=&quot; color:#00ff7f;&quot;&gt;by tonitaga katrinap faglanti&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" rowspan="2">
+           <widget class="QLabel" name="labelInfo">
+            <property name="font">
+             <font>
+              <pointsize>17</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">color: white</string>
+            </property>
+            <property name="text">
+             <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;PhotoLaboratory&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt; is an application where you can apply different filters to your image.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;The application allows you to use &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;12 filters&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;Basic information: almost all of the buttons have quick information about the filter and its hotkey.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;You can get more information in the &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;Help tab&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;To access the advanced version of the application, you need to buy a subscription for &lt;/span&gt;&lt;span style=&quot; font-size:12pt; font-weight:700;&quot;&gt;$10 per month&lt;/span&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignHCenter|Qt::AlignTop</set>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pageEdit">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <layout class="QGridLayout" name="gridLayout_8" rowstretch="1,0,0">
+        <item row="0" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayoutImagePreview" stretch="1,1">
+          <item>
+           <widget class="QLabel" name="labelStartImage">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+	background-color:  #18122B;
+	border: 1px solid gray;
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="labelFilteredImage">
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+	background-color:  #18122B;
+	border: 1px solid gray;
+}</string>
+            </property>
+            <property name="text">
+             <string/>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="0">
+         <layout class="QGridLayout" name="gridLayout_4" columnstretch="1,1,1,1">
+          <item row="0" column="0">
+           <layout class="QVBoxLayout" name="verticalLayoutNonConvolution">
+            <item>
+             <widget class="QPushButton" name="pushButtonGrayScaleFilter">
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	background-color: #18122B;;
+	color: white;
+	border: 1px solid gray;
+	border-radius: 6px;
+}
+
+QPushButton::hover {
+	background-color: #393053;;
+}
+
+QToolTip {
+	background-color:#393053;
+}</string>
+              </property>
+              <property name="text">
+               <string>GrayScale</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButtonNegativeFilter">
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	background-color: #18122B;
+	color: white;
+	border: 1px solid gray;
+	border-radius: 6px;
+}
+
+QPushButton::hover {
+	background-color: #393053;
+}
+
+QToolTip {
+	background-color: rgb(83, 83, 83);
+	color: white;
+}</string>
+              </property>
+              <property name="text">
+               <string>Negative</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButtonToningFilter">
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	background-color: #18122B;
+	color: white;
+	border: 1px solid gray;
+	border-radius: 6px;
+}
+
+QPushButton::hover {
+	background-color: #393053;
+}
+
+QToolTip {
+	background-color: rgb(83, 83, 83);
+	color: white;
+}</string>
+              </property>
+              <property name="text">
+               <string>Toning</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="1">
+           <layout class="QVBoxLayout" name="verticalLayoutConvolution1">
+            <item>
+             <widget class="QPushButton" name="pushButtonEmbossFilter">
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	background-color: #18122B;
+	color: white;
+	border: 1px solid gray;
+	border-radius: 6px;
+}
+
+QPushButton::hover {
+	background-color: #393053;
+}</string>
+              </property>
+              <property name="text">
+               <string>Emboss</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButtonSharpenFilter">
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	background-color: #18122B;
+	color: white;
+	border: 1px solid gray;
+	border-radius: 6px;
+}
+
+QPushButton::hover {
+	background-color: #393053;
+}</string>
+              </property>
+              <property name="text">
+               <string>Sharpen</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButtonBoxBlurFilter">
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	background-color: #18122B;
+	color: white;
+	border: 1px solid gray;
+	border-radius: 6px;
+}
+
+QPushButton::hover {
+	background-color: #393053;
+}</string>
+              </property>
+              <property name="text">
+               <string>BoxBlur</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="2">
+           <layout class="QVBoxLayout" name="verticalLayoutConvolution2">
+            <item>
+             <widget class="QPushButton" name="pushButtonGaussianBlurFilter">
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	background-color: #18122B;
+	color: white;
+	border: 1px solid gray;
+	border-radius: 6px;
+}
+
+QPushButton::hover {
+	background-color: #393053;
+}</string>
+              </property>
+              <property name="text">
+               <string>GaussianBlur</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButtonLaplacianFilter">
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	background-color:#18122B;
+	color: white;
+	border: 1px solid gray;
+	border-radius: 6px;
+}
+
+QPushButton::hover {
+	background-color:#393053;
+}</string>
+              </property>
+              <property name="text">
+               <string>Laplacian</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButtonPrewittFilter">
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	background-color: #18122B;
+	color: white;
+	border: 1px solid gray;
+	border-radius: 6px;
+}
+
+QPushButton::hover {
+	background-color: #393053;
+}</string>
+              </property>
+              <property name="text">
+               <string>Prewitt</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="3">
+           <layout class="QVBoxLayout" name="verticalLayoutSettings">
+            <item>
+             <widget class="QPushButton" name="pushButtonAcceptFilters">
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	background-color:  #18122B;
+	color: white;
+	border: 1px solid rgb(0, 255, 127);
+	border-radius: 6px;
+}
+
+QPushButton::hover {
+	background-color: #393053;
+}</string>
+              </property>
+              <property name="text">
+               <string>Accept</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButtonPeekStartImage">
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	background-color:  #18122B;
+	color: white;
+	border: 1px solid rgb(0, 255, 127);
+	border-radius: 6px;
+}
+
+QPushButton::hover {
+	background-color: #393053;
+}</string>
+              </property>
+              <property name="text">
+               <string>Peek Start</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButtonResetFilters">
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	background-color:  #18122B;
+	color: white;
+	border: 1px solid rgb(0, 255, 127);
+	border-radius: 6px;
+}
+
+QPushButton::hover {
+	background-color: #393053;
+}</string>
+              </property>
+              <property name="text">
+               <string>Reset</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="0">
+         <layout class="QGridLayout" name="gridLayout_7" columnstretch="1,1,1,1" columnminimumwidth="0,0,0,0">
+          <item row="0" column="0">
+           <layout class="QGridLayout" name="gridLayout_5">
+            <item row="0" column="0">
+             <widget class="QSlider" name="horizontalSliderContrastFilter">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="minimum">
+               <number>0</number>
+              </property>
+              <property name="maximum">
+               <number>100</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QSpinBox" name="spinBoxConstrast">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="readOnly">
+               <bool>false</bool>
+              </property>
+              <property name="buttonSymbols">
+               <enum>QAbstractSpinBox::NoButtons</enum>
+              </property>
+              <property name="maximum">
+               <number>100</number>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QSlider" name="horizontalScrollBarHue">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="maximum">
+               <number>359</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QSpinBox" name="spinBoxHue">
+              <property name="readOnly">
+               <bool>false</bool>
+              </property>
+              <property name="buttonSymbols">
+               <enum>QAbstractSpinBox::NoButtons</enum>
+              </property>
+              <property name="maximum">
+               <number>359</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="1">
+           <layout class="QGridLayout" name="gridLayout_6">
+            <item row="0" column="0">
+             <widget class="QSlider" name="horizontalSliderBrightnessFilter">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="minimum">
+               <number>-100</number>
+              </property>
+              <property name="maximum">
+               <number>100</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QSpinBox" name="spinBoxBrightness">
+              <property name="readOnly">
+               <bool>false</bool>
+              </property>
+              <property name="buttonSymbols">
+               <enum>QAbstractSpinBox::NoButtons</enum>
+              </property>
+              <property name="minimum">
+               <number>-100</number>
+              </property>
+              <property name="maximum">
+               <number>100</number>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QSlider" name="horizontalScrollBarSaturation">
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="maximum">
+               <number>255</number>
+              </property>
+              <property name="value">
+               <number>255</number>
+              </property>
+              <property name="orientation">
+               <enum>Qt::Horizontal</enum>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QSpinBox" name="spinBoxSaturation">
+              <property name="readOnly">
+               <bool>false</bool>
+              </property>
+              <property name="buttonSymbols">
+               <enum>QAbstractSpinBox::NoButtons</enum>
+              </property>
+              <property name="maximum">
+               <number>255</number>
+              </property>
+              <property name="value">
+               <number>255</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="2">
+           <layout class="QVBoxLayout" name="verticalLayout">
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout">
+              <item>
+               <widget class="QRadioButton" name="radioButtonHSL">
+                <property name="styleSheet">
+                 <string notr="true">QRadioButton {
+    color: white;
+}
+
+QRadioButton::indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 7px;
+}
+
+QRadioButton::indicator:checked {
+    background-color: rgb(0, 255, 127);
+    border: 1px solid gray;
+}
+
+QRadioButton::indicator:unchecked {
+    border: 1px solid gray;
+}
+</string>
+                </property>
+                <property name="text">
+                 <string>HSL</string>
+                </property>
+                <property name="checked">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="radioButtonHSV">
+                <property name="styleSheet">
+                 <string notr="true">QRadioButton {
+    color: white;
+}
+
+QRadioButton::indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 7px;
+}
+
+QRadioButton::indicator:checked {
+    background-color: rgb(0, 255, 127);
+    border: 1px solid gray;
+}
+
+QRadioButton::indicator:unchecked {
+    border: 1px solid gray;
+}</string>
+                </property>
+                <property name="text">
+                 <string>HSV</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <layout class="QHBoxLayout" name="horizontalLayout_6">
+              <item>
+               <widget class="QSlider" name="horizontalScrollBarValueLightness">
+                <property name="styleSheet">
+                 <string notr="true">QSlider::groove:horizontal {
+    border: 1px solid gray;
+    height: 10px;
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1, stop:0 #18122B, stop:1 #393053);
+    margin: 2px 0;
+}
+
+QSlider::handle:horizontal {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #393053, stop:1  #18122B);
+    border: 1px solid #5c5c5c;
+    width: 18px;
+    margin: -2px 0;
+    border-radius: 3px;
+}</string>
+                </property>
+                <property name="maximum">
+                 <number>255</number>
+                </property>
+                <property name="value">
+                 <number>130</number>
+                </property>
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QSpinBox" name="spinBoxValueLightness">
+                <property name="readOnly">
+                 <bool>false</bool>
+                </property>
+                <property name="buttonSymbols">
+                 <enum>QAbstractSpinBox::NoButtons</enum>
+                </property>
+                <property name="maximum">
+                 <number>255</number>
+                </property>
+                <property name="value">
+                 <number>130</number>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="3">
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QLabel" name="labelHSLVcolor">
+              <property name="autoFillBackground">
+               <bool>true</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true"/>
+              </property>
+              <property name="text">
+               <string/>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButtonConvertHSLV">
+              <property name="styleSheet">
+               <string notr="true">QPushButton {
+	background-color: #18122B;
+	color: white;
+	border: 1px solid rgb(0, 255, 127);
+	border-radius: 6px;
+}
+
+QPushButton::hover {
+	background-color: #393053;
+}</string>
+              </property>
+              <property name="text">
+               <string>Convert</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionImport"/>
+    <addaction name="actionExport"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>Edit</string>
+    </property>
+    <widget class="QMenu" name="menuFilters">
+     <property name="title">
+      <string>Filters</string>
+     </property>
+     <addaction name="actionGrayScale"/>
+     <addaction name="actionNegative"/>
+     <addaction name="actionToning"/>
+     <addaction name="separator"/>
+     <addaction name="actionEmboss"/>
+     <addaction name="actionSharpen"/>
+     <addaction name="actionBoxBlur"/>
+     <addaction name="actionGaussian"/>
+     <addaction name="actionLaplacian"/>
+     <addaction name="actionPrewitt"/>
+     <addaction name="actionCustom_Kernel"/>
+    </widget>
+    <widget class="QMenu" name="menuTrancparency">
+     <property name="title">
+      <string>Transparency</string>
+     </property>
+     <addaction name="action100"/>
+     <addaction name="action95"/>
+     <addaction name="action90"/>
+     <addaction name="action80"/>
+    </widget>
+    <addaction name="menuFilters"/>
+    <addaction name="menuTrancparency"/>
+   </widget>
+   <widget class="QMenu" name="menuImage">
+    <property name="title">
+     <string>Image</string>
+    </property>
+    <widget class="QMenu" name="menuSize">
+     <property name="title">
+      <string>Size</string>
+     </property>
+     <addaction name="actionReal"/>
+     <addaction name="actionScaled"/>
+     <addaction name="actionStretched"/>
+    </widget>
+    <addaction name="menuSize"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionMain"/>
+    <addaction name="actionEdit"/>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuImage"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <action name="actionImport">
+   <property name="text">
+    <string>Import</string>
+   </property>
+  </action>
+  <action name="actionExport">
+   <property name="text">
+    <string>Export</string>
+   </property>
+  </action>
+  <action name="actionGrayScale">
+   <property name="text">
+    <string>GrayScale</string>
+   </property>
+  </action>
+  <action name="actionNegative">
+   <property name="text">
+    <string>Negative</string>
+   </property>
+  </action>
+  <action name="actionToning">
+   <property name="text">
+    <string>Toning</string>
+   </property>
+  </action>
+  <action name="actionEmboss">
+   <property name="text">
+    <string>Emboss</string>
+   </property>
+  </action>
+  <action name="actionSharpen">
+   <property name="text">
+    <string>Sharpen</string>
+   </property>
+  </action>
+  <action name="actionGaussian">
+   <property name="text">
+    <string>Gaussian</string>
+   </property>
+  </action>
+  <action name="actionLaplacian">
+   <property name="text">
+    <string>Laplacian</string>
+   </property>
+  </action>
+  <action name="actionPrewitt">
+   <property name="text">
+    <string>Prewitt</string>
+   </property>
+  </action>
+  <action name="actionReal">
+   <property name="text">
+    <string>Real</string>
+   </property>
+  </action>
+  <action name="actionScaled">
+   <property name="text">
+    <string>Scaled</string>
+   </property>
+  </action>
+  <action name="actionAbout_Program">
+   <property name="text">
+    <string>About the program</string>
+   </property>
+  </action>
+  <action name="actionMain">
+   <property name="text">
+    <string>Main page</string>
+   </property>
+  </action>
+  <action name="action100">
+   <property name="text">
+    <string>100%</string>
+   </property>
+  </action>
+  <action name="action95">
+   <property name="text">
+    <string>95%</string>
+   </property>
+  </action>
+  <action name="action90">
+   <property name="text">
+    <string>90%</string>
+   </property>
+  </action>
+  <action name="action80">
+   <property name="text">
+    <string>80%</string>
+   </property>
+  </action>
+  <action name="actionStretched">
+   <property name="text">
+    <string>Stretched</string>
+   </property>
+  </action>
+  <action name="actionEdit">
+   <property name="text">
+    <string>Edit Page</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About PhotoLab</string>
+   </property>
+  </action>
+  <action name="actionBoxBlur">
+   <property name="text">
+    <string>BoxBlur</string>
+   </property>
+  </action>
+  <action name="actionCustom_Kernel">
+   <property name="text">
+    <string>Custom Kernel</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
+ <connections/>
+</ui>
