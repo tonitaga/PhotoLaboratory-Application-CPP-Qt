@@ -6,7 +6,7 @@
 </p>
 
 ## Contents
-
+0. [Install](#install)
 1. [Main Information](#main-information)
 2. [What it looks like?](#what-it-looks-like)\
     2.1. [Main Window](#main-welcome-window)\
@@ -16,11 +16,42 @@
 4. [HotKeys and ToolTips](#hotkeys-and-tooltips)
 
 ---
+
+## Install
+
+To install the PhotoLaboratory-Application-CPP-Qt, follow these steps:
+
+1. Clone or download repository.
+
+```shell
+git clone https://github.com/tonitaga/PhotoLaboratory-Application-CPP-Qt.git
+```
+
+2. Ensure you have the g++ compiler installed on your system.
+3. Install dependencies
+
+```shell
+make install
+```
+
+4. Run the program
+
+```shell
+make run
+```
+
+or download release archive .zip by url
+
+```shell
+https://github.com/tonitaga/PhotoLaboratory-Application-CPP-Qt/releases/tag/PhotoLaboratory
+```
+
 ## Main information:
 
 The application is developed in the C++ programming language and allows the user to apply various filters to his image.\
 The application supports images in the png bmp jpg jpeg format.\
 You can find 12 different filters in the application:
+
 ---
 1) <b>Convolution filters</b>: Emboss, Sharpen, BoxBlur, GaussianBlur, Laplacian, Prewitt, Custom
 2) <b>Non Convolution filters</b>: GrayScale, Negative, Toning
@@ -79,4 +110,4 @@ Almost all that is in the application have their own short information, you just
 
 ---
 
-#### © tonitaga (Нурислам Губайдуллин) 15.04.2023
+#### © tonitaga (Нурислам Губайдуллин) 19.10.2023
